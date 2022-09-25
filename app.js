@@ -53,14 +53,12 @@ mongoose.connect(
 // Get the default connection
 const db = mongoose.connection;
 
-const gc = async () => {
-  const cat = require("./models/category");
-  const grapicCards = new cat({
-    name: "Graphic Cards",
-    description: "graphic card",
-  });
-  await grapicCards.save();
-};
+// const gc = async () => {
+//   // const cat = require("./models/category");
+//   // const tt = await cat.findOne({ name: "Graphic Cards" });
+//   // console.log(tt._id);
+//   // const item = require("./models/item");
+// };
 
 // gc();
 
