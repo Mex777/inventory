@@ -1,0 +1,5 @@
+<nav>
+  <% categories.forEach(category => {%>
+  <a href="/category/<%=category._id%>"> <%=category.name%> </a>
+  <%}) %>
+</nav>
