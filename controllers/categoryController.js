@@ -39,4 +39,17 @@ const post = async (req, res) => {
   res.redirect("/category/" + newCat._id);
 };
 
-module.exports = { defaultRoute, idRoute, add, post };
+const addItem = async (req, res) => {
+  console.log(req.params);
+  const categories = await categoryModel.find({});
+  const newItem = new itemModel({
+    name: req.body.name,
+    price: req.body.price,
+    category: req.params.id,
+  });
+  await newItem.save();
+  // console.log(req.path);
+  res.redirect(`${req.params.id}`);
+};
+
+module.exports = { defaultRoute, idRoute, add, post, addItem };

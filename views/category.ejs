@@ -11,5 +11,13 @@
     <h2><%=category.name %></h2>
     <p><%=category.description %></p>
     <%- include("partials/itemList", {items}) %>
+    <h3>Add a new item</h3>
+    <form method="post">
+      <label>Name</label>
+      <input name="name" required />
+      <label>Price</label>
+      <input name="price" required />
+      <button>ADD</button>
+    </form>
   </body>
 </html>

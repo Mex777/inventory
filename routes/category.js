@@ -10,4 +10,6 @@ router.get("/:id", categoryController.idRoute);
 
 router.post("/", categoryController.post);
 
+router.post("/:id", categoryController.addItem);
+
 module.exports = router;
