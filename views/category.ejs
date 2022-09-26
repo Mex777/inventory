@@ -8,8 +8,8 @@
   </head>
   <body>
     <%- include("partials/navbar", {categories}) %>
-    <h1>PC GARAGE</h1>
     <h2><%=category.name %></h2>
+    <p><%=category.description %></p>
     <%- include("partials/itemList", {items}) %>
   </body>
 </html>

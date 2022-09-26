@@ -15,7 +15,7 @@ const idRoute = async (req, res) => {
     res.status(404).render("404", { categories });
     return;
   }
-  const category = await categoryModel.find({ _id: req.params.id });
+  const category = await categoryModel.findOne({ _id: req.params.id });
   if (Object.keys(category).length !== 0) {
     const items = await itemModel.find({ category: req.params.id });
     res.render("category", { category, categories, items });
@@ -24,4 +24,19 @@ const idRoute = async (req, res) => {
   }
 };
 
-module.exports = { defaultRoute, idRoute };
+const add = async (req, res) => {
+  const categories = await categoryModel.find({});
+  res.render("addPage", { categories });
+};
+
+const post = async (req, res) => {
+  console.log(req.body);
+  const newCat = new categoryModel({
+    name: req.body.title,
+    description: req.body.description,
+  });
+  await newCat.save();
+  res.redirect("/category/" + newCat._id);
+};
+
+module.exports = { defaultRoute, idRoute, add, post };
